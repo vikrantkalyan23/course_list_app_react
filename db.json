@@ -1,8 +1,0 @@
-{
-    "courses": [
-      { "id": 1, "name": "React Basics", "description": "Learn the basics of React." },
-      { "id": 2, "name": "Redux Advanced", "description": "Master Redux for state management." }
-    ],
-    "enquiries": []
-  }
-  
