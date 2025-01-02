@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CourseList from "./components/CourseList";
+import EnquiryForm from "./components/EnquiryForm";
+import Enquiries from "./components/Enquiries";
 
-function App() {
+const App = () => {
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Course List Application</h1>
+      <button onClick={() => setSelectedCourse(null)}>Courses</button>
+      <button onClick={() => setSelectedCourse("enquiries")}>Enquiries</button>
+
+      {selectedCourse === null ? (
+        <CourseList onEnquire={(course) => setSelectedCourse(course)} />
+      ) : selectedCourse === "enquiries" ? (
+        <Enquiries />
+      ) : (
+        <EnquiryForm selectedCourse={selectedCourse} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
